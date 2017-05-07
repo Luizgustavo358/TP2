@@ -1,0 +1,24 @@
+<resources>
+    <!-- Nome do Aplicativo -->
+    <string name="app_name">Trabalho Prático 2</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- Textos -->
+    <string name="bomDia">Bom Dia!</string>
+    <string name="boaNoite">Boa Noite!</string>
+    <string name="meuNome">Luiz Gustavo</string>
+    <string name="email">luiz.braganca@sga.pucminas.br</string>
+
+    <!-- Label das Telas -->
+    <string name="foto">Foto</string>
+    <string name="sobre">Sobre</string>
+    <string name="title_activity_maps">Mapa</string>
+    <string name="lat_long">Latitude/Longitude</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
