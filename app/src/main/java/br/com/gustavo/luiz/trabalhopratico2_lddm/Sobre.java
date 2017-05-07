@@ -2,7 +2,6 @@ package br.com.gustavo.luiz.trabalhopratico2_lddm;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
 
 public class Sobre extends AppCompatActivity
 {
