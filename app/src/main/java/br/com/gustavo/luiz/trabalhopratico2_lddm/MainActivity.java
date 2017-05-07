@@ -5,11 +5,8 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -177,16 +174,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
        return super.onOptionsItemSelected(item);
     }// end onOptionsItemSelected( )
 
@@ -220,6 +207,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
         return true;
     }// end onNavigationItemSelected( )
 
@@ -234,15 +222,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void chamaCamera( )
     {
+        // criando intent
         Intent intent = new Intent(this, CameraActivity.class);
 
+        // chamando a tela da camera
         startActivity(intent);
     }// end chamaCamera( )
 
     public void latLong( )
     {
+        // criando intent
         Intent intent = new Intent(this, Latitude_Longitude.class);
 
+        // chamando a tela da lat/long
         startActivity(intent);
     }// end latLong( )
 
@@ -251,7 +243,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // criando intent
         Intent intent = new Intent(this, Sobre.class);
 
-        // inicializando intent
+        // chamando a tela sobre
         startActivity(intent);
     }// end sobre( )
 }// end class
