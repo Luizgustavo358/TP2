@@ -23,6 +23,7 @@ public class CameraActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
+        // associando botoes e a imagem
         btnCamera = (FloatingActionButton) findViewById(R.id.btnCamera);
         btnSend = (FloatingActionButton) findViewById(R.id.send);
         imageView = (ImageView) findViewById(R.id.fotoTirada);
