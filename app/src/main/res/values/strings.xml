@@ -5,17 +5,14 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
-
     <!-- Textos -->
     <string name="bomDia">Bom Dia!</string>
     <string name="boaNoite">Boa Noite!</string>
-    <string name="meuNome">Luiz Gustavo</string>
-    <string name="email">luiz.braganca@sga.pucminas.br</string>
+    <string name="meuNome">Feito por: Luiz Gustavo</string>
 
     <!-- Label das Telas -->
     <string name="foto">Foto</string>
-    <string name="sobre">Sobre</string>
+    <string name="ajuda">Ajuda</string>
     <string name="title_activity_maps">Mapa</string>
     <string name="lat_long">Latitude/Longitude</string>
 

@@ -68,7 +68,7 @@
 
         <activity
             android:name=".Sobre"
-            android:label="@string/sobre"
+            android:label="@string/ajuda"
             android:screenOrientation="portrait" />
 
         <activity
