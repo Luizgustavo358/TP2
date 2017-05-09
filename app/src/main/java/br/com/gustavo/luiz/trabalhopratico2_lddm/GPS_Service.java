@@ -48,7 +48,8 @@ public class GPS_Service extends Service
             public void onProviderEnabled(String s) {}
 
             @Override
-            public void onProviderDisabled(String s) {
+            public void onProviderDisabled(String s)
+            {
                 Intent i = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
