@@ -93,6 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
+            app:fabSize="normal"
             app:srcCompat="@drawable/gpsindicator" />
 
         <android.support.design.widget.FloatingActionButton
@@ -104,7 +105,7 @@
             android:layout_marginEnd="12dp"
             android:clickable="true"
             app:backgroundTint="@color/colorPrimaryDark"
-            app:fabSize="mini"
+            app:fabSize="normal"
             app:srcCompat="@drawable/facebook" />
 
 
