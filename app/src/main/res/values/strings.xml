@@ -2,6 +2,9 @@
     <!-- Nome do Aplicativo -->
     <string name="app_name">Trabalho Prático 2</string>
 
+    <!-- Facebook App ID -->
+    <string name="facebook_app_id">1403061519758991</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

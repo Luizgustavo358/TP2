@@ -18,11 +18,14 @@ import android.view.View;
 import android.widget.TextView;
 import android.Manifest;
 
+import com.facebook.FacebookSdk;
+
 public class Latitude_Longitude extends AppCompatActivity
 {
     private TextView latitudeText;               // Texto latitude
     private TextView longitudeText;              // Texto longitude
     private FloatingActionButton floatingButton; // botao para ver a latitude e longitude
+    private FloatingActionButton flFacebook;
     private BroadcastReceiver broadcastReceiver;
 
     @Override
@@ -65,6 +68,7 @@ public class Latitude_Longitude extends AppCompatActivity
         latitudeText  = (TextView) findViewById(R.id.latitudeTexto);
         longitudeText = (TextView) findViewById(R.id.longitudeTexto);
         floatingButton = (FloatingActionButton) findViewById(R.id.fab);
+        flFacebook = (FloatingActionButton) findViewById(R.id.facebook);
 
         if(!runtime_permissions( ))
         {

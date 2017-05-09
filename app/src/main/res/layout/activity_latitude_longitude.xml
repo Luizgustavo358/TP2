@@ -83,11 +83,31 @@
         </LinearLayout>
     </LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/gpsindicator" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@drawable/gpsindicator" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/facebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/fab"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="12dp"
+            android:clickable="true"
+            app:backgroundTint="@color/colorPrimaryDark"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/facebook" />
+
+
+    </RelativeLayout>
+
 </LinearLayout>

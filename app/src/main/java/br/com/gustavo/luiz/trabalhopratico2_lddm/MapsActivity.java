@@ -171,9 +171,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             {
                 // abre a camera
                 chamaCamera( );
-
-                // manda o facebook
-                mandaFotoParaFacebook( );
             }// end onClick( )
         });
 
@@ -194,7 +191,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void chamaCamera( )
     {
-        // cria intent para chamar camera
+        // cria intent para chama camera
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
         if(intent.resolveActivity(getPackageManager( )) != null)
@@ -216,11 +213,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Bitmap imageBitmap = (Bitmap) extras.get("data");
         }// end if
     }// end onActivityResult( )
-
-    public void mandaFotoParaFacebook( )
-    {
-
-    }// end mandaFotoParaFacebook( )
 
     @Override
     public void onLocationChanged(Location location)
