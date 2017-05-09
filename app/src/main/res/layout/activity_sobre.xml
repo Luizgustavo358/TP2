@@ -28,7 +28,7 @@
             android:layout_weight="0.00"
             android:text="Tutorial do Aplicativo:"
             android:textAlignment="center"
-            android:textSize="18sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <Space

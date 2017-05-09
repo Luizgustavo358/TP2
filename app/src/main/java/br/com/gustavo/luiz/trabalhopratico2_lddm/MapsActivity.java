@@ -1,6 +1,7 @@
 package br.com.gustavo.luiz.trabalhopratico2_lddm;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -10,8 +11,11 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.preference.DialogPreference;
+import android.provider.MediaStore;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -26,12 +30,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 {
     // definir dados
     private int i = 1;
-    double lat;
-    double lon;
+    private double lat;
+    private double lon;
+    private AlertDialog alerta;
     private SensorManager sm;
     private GoogleMap mMap;
     private LocationManager locationManager;
     private static final String TAG = "MapsActivity";
+    private final int TIRAR_FOTO = 123;
     private float acelVal;  // valor atual da aceleracao e gravidade
     private float acelLast; // ultimo valor da aceleracao e gravidade
     private float shake;    // valor da aceleracao diferente da gravidade
@@ -141,8 +147,66 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         i++;
 
+        // chama o alertDialog pra ver se a pessoa quer tirar foto
+        dialog( );
+
         // salva no banco de dados a posicao
     }// end marcaPosicao( )
+
+    public void dialog( )
+    {
+        // cria o gerador do AlertDialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        // define o titulo
+        builder.setTitle("Tirar Foto");
+
+        // define a mensagem
+        builder.setMessage("Deseja Tirar uma foto?");
+
+        // define um botao positivo
+        builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1)
+            {
+                // abre a camera
+                chamaCamera( );
+
+                // manda o facebook
+                mandaFotoParaFacebook( );
+            }// end onClick( )
+        });
+
+        // define um botao negativo
+        builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1)
+            {
+
+            }// end onClick( )
+        });
+
+        // cria o AlertDialog
+        alerta = builder.create();
+
+        // exibe
+        alerta.show( );
+    }// end chamaCamera( )
+
+    public void chamaCamera( )
+    {
+        Toast.makeText(this, "chama camara", Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        if(intent.resolveActivity(getPackageManager()) != null)
+        {
+            startActivityForResult(intent, TIRAR_FOTO);
+        }// end if
+    }// end chamaCamera( )
+
+    public void mandaFotoParaFacebook( )
+    {
+
+    }// end mandaFotoParaFacebook( )
 
     @Override
     public void onLocationChanged(Location location)
