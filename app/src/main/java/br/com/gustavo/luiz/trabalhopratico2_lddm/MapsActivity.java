@@ -3,6 +3,7 @@ package br.com.gustavo.luiz.trabalhopratico2_lddm;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -193,15 +194,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void chamaCamera( )
     {
-        Toast.makeText(this, "chama camara", Toast.LENGTH_SHORT).show();
-
+        // cria intent para chamar camera
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-        if(intent.resolveActivity(getPackageManager()) != null)
+        if(intent.resolveActivity(getPackageManager( )) != null)
         {
+            // chama camera
             startActivityForResult(intent, TIRAR_FOTO);
         }// end if
     }// end chamaCamera( )
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == TIRAR_FOTO && resultCode == RESULT_OK)
+        {
+            Bundle extras = data.getExtras();
+
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+        }// end if
+    }// end onActivityResult( )
 
     public void mandaFotoParaFacebook( )
     {
