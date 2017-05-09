@@ -70,35 +70,6 @@ public class Latitude_Longitude extends AppCompatActivity
         {
             enable_buttons( );
         }// end if
-
-//        /* GPS */
-//        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-//
-//        locationListener = new LocationListener() {
-//            @Override
-//            public void onLocationChanged(Location location)
-//            {
-//                // mostrando na tela
-//                latitudeText.setText("" + location.getLatitude( ));
-//                longitudeText.setText("" + location.getLongitude( ));
-//            }// end onLocationChanged( )
-//
-//            @Override
-//            public void onStatusChanged(String s, int i, Bundle bundle){}// end onStatusChanged( )
-//
-//            @Override
-//            public void onProviderEnabled(String s){}// end onProviderEnabled( )
-//
-//            @Override
-//            public void onProviderDisabled(String s)
-//            {
-//                Intent i = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-//                startActivity(i);
-//            }// end onProviderDisabled( )
-//        };
-//
-//        // configurando o botao
-//        configure_button( );
     }// end onCreate( )
 
     private void enable_buttons( )
@@ -142,50 +113,4 @@ public class Latitude_Longitude extends AppCompatActivity
             }// end if
         }// end if
     }// end onRequestPermissionsResult( )
-
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
-//    {
-//        switch(requestCode)
-//        {
-//            case 10:
-//                configure_button();
-//                break;
-//            default:
-//                break;
-//        }
-//    }// end onRequestPermissionsResult( )
-//
-//    void configure_button( )
-//    {
-//        // first check for permissions
-//        if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-//                ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-//        {
-//            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-//            {
-//                requestPermissions(new String[]{android.Manifest.permission.ACCESS_COARSE_LOCATION, android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.INTERNET}, 10);
-//            }// end if
-//            return;
-//        }
-//
-//        // this code won't execute IF permissions are not allowed, because in the line above there is return statement.
-//        floatingButton.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view)
-//            {
-//                //noinspection MissingPermission
-//                locationManager.requestLocationUpdates("gps", 600, 0, locationListener);
-//            }// end onClick( )
-//        });
-//    }// end configure_button( )
-
-//    /**
-//     * Metodo onResume( ).
-//     */
-//    @Override
-//    public void onResume( )
-//    {
-//        super.onResume( );
-//    }// end onResume( )
 }// end class

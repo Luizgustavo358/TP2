@@ -181,7 +181,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1)
             {
-
+                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
             }// end onClick( )
         });
 
