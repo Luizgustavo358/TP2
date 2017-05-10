@@ -42,4 +42,4 @@ public class Coordenadas
     public void setFoto(byte[] foto) {
         this.foto = foto;
     }
-}
+}// end class

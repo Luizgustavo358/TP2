@@ -14,7 +14,6 @@ public class CameraActivity extends AppCompatActivity
     // definir dados
     private ImageView imageView;
     private FloatingActionButton btnCamera;
-    private FloatingActionButton btnSend;
     private final int TIRAR_FOTO = 123;
 
     @Override
@@ -25,7 +24,6 @@ public class CameraActivity extends AppCompatActivity
 
         // associando botoes e a imagem
         btnCamera = (FloatingActionButton) findViewById(R.id.btnCamera);
-        btnSend = (FloatingActionButton) findViewById(R.id.send);
         imageView = (ImageView) findViewById(R.id.fotoTirada);
 
         btnCamera.setOnClickListener(new View.OnClickListener() {

@@ -106,7 +106,8 @@
             android:clickable="true"
             app:backgroundTint="@color/colorPrimaryDark"
             app:fabSize="normal"
-            app:srcCompat="@drawable/facebook" />
+            app:srcCompat="@drawable/facebook"
+            android:onClick="facebook" />
 
 
     </RelativeLayout>

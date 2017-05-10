@@ -154,9 +154,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // chama o alertDialog pra ver se a pessoa quer tirar foto
         dialog( );
-
-        // salva no banco de dados a posicao
-        salvaBD( );
     }// end marcaPosicao( )
 
     public void dialog( )
@@ -176,6 +173,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             {
                 // abre a camera
                 chamaCamera( );
+                salvaBDComFoto( );
             }// end onClick( )
         });
 
@@ -183,7 +181,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1)
             {
-                Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+                salvaBDSemFoto( );
             }// end onClick( )
         });
 
@@ -219,7 +217,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }// end if
     }// end onActivityResult( )
 
-    public void salvaBD( )
+    public void salvaBDComFoto( )
     {
         Coordenadas coordenadas = new Coordenadas( );
 
@@ -229,7 +227,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         bd.addCoordenadas(coordenadas);
 
-        Toast.makeText(getApplicationContext(), "Coordenada inserida com sucesso", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Coordenadas e Foto inseridas com sucesso!", Toast.LENGTH_SHORT).show();
+    }// end salvaBD( )
+
+    public void salvaBDSemFoto( )
+    {
+        Coordenadas coordenadas = new Coordenadas( );
+
+        coordenadas.setLatitude("" + lat);
+        coordenadas.setLongitude("" + lon);
+
+        bd.addCoordenadas(coordenadas);
+
+        Toast.makeText(getApplicationContext(), "Coordenadas inseridas com sucesso!", Toast.LENGTH_SHORT).show();
     }// end salvaBD( )
 
     @Override
