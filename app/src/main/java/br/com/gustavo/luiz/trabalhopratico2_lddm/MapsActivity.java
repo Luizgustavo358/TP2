@@ -42,12 +42,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private float acelVal;  // valor atual da aceleracao e gravidade
     private float acelLast; // ultimo valor da aceleracao e gravidade
     private float shake;    // valor da aceleracao diferente da gravidade
+    private DbHelper bd;
+    Bitmap imageBitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+        bd = new DbHelper(this);
 
         sm = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
@@ -152,6 +156,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         dialog( );
 
         // salva no banco de dados a posicao
+        salvaBD( );
     }// end marcaPosicao( )
 
     public void dialog( )
@@ -210,9 +215,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         {
             Bundle extras = data.getExtras();
 
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            imageBitmap = (Bitmap) extras.get("data");
         }// end if
     }// end onActivityResult( )
+
+    public void salvaBD( )
+    {
+        Coordenadas coordenadas = new Coordenadas( );
+
+        coordenadas.setLatitude("" + lat);
+        coordenadas.setLongitude("" + lon);
+        //coordenadas.setFoto(imageBitmap);
+
+        bd.addCoordenadas(coordenadas);
+
+        Toast.makeText(getApplicationContext(), "Coordenada inserida com sucesso", Toast.LENGTH_SHORT).show();
+    }// end salvaBD( )
 
     @Override
     public void onLocationChanged(Location location)
