@@ -123,5 +123,8 @@ public class Latitude_Longitude extends AppCompatActivity
     public void facebook(View view)
     {
         Toast.makeText(this, "Facebook", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent("android.intent.category.LAUNCHER");
+        intent.setClassName("com.facebook.katana", "com.facebook.katana.LoginActivity");
+        startActivity(intent);
     }// end facebook
 }// end class
