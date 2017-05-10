@@ -33,13 +33,13 @@
                     android:id="@+id/lat"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
-                    android:text="Latitude" />
+                    android:text="Latitude: " />
 
                 <TextView
                     android:id="@+id/lon"
                     android:layout_width="match_parent"
                     android:layout_height="36dp"
-                    android:text="TextView" />
+                    android:text="Longitude: " />
             </LinearLayout>
         </LinearLayout>
     </FrameLayout>
