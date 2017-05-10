@@ -11,6 +11,18 @@ public class Coordenadas
     private String longitude;
     private byte[] foto;
 
+    public Coordenadas( )
+    {
+
+    }// end construtor
+
+    public Coordenadas(int id, String latitude, String longitude, byte[] foto)
+    {
+        this.id = id;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }// end cons
+
     public int getId() {
         return id;
     }
