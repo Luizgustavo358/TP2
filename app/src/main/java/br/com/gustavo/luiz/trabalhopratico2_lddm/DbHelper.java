@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.concurrent.RecursiveTask;
 
 /**
  * Created by luiz on 09/05/17.
@@ -36,7 +37,7 @@ public class DbHelper extends SQLiteOpenHelper
                 "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "latitude TEXT," +
                 "longitude TEXT, " +
-                "foto BLOB);";
+                "foto BLOB)";
 
         db.execSQL(CREATE_TABLE);
     }// end onCreate( )
@@ -68,16 +69,14 @@ public class DbHelper extends SQLiteOpenHelper
                                  new String[] {String.valueOf(id)},
                                  null, null, null, null);
 
-        if(cursor == null)
-        {
-            return null;
-        }
-        else
+        if(cursor != null)
         {
             cursor.moveToFirst();
-            Coordenadas coordenadas = cursorToCoordenadas(cursor);
-            return coordenadas;
         }// end if
+
+        Coordenadas coordenadas = cursorToCoordenadas(cursor);
+
+        return coordenadas;
     }// end getCoordenadas( )
 
     private Coordenadas cursorToCoordenadas(Cursor cursor)
@@ -110,6 +109,8 @@ public class DbHelper extends SQLiteOpenHelper
             }while(cursor.moveToNext());
         }// end if
 
+        db.close( );
+
         return listaCoordenadas;
     }// end getAllCoordenadas( )
 
@@ -128,15 +129,24 @@ public class DbHelper extends SQLiteOpenHelper
         return i;
     }// end updateCoordenadas( )
 
-    public int deleteCoordenadas(Coordenadas coordenadas)
+    public void deleteCoordenadas(Coordenadas coordenadas)
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        int i = db.delete(TABLE_COORDENADAS, ID + " = ?",
+        db.delete(TABLE_COORDENADAS, "id = ?",
                           new String[]{String.valueOf(coordenadas.getId())});
 
         db.close();
-
-        return i;
     }// end deleteCoordenadas( )
+
+    public int getCoordenadasCount( )
+    {
+        String countQuery = "SELECT  * FROM " + TABLE_COORDENADAS;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(countQuery, null);
+        cursor.close();
+
+        return cursor.getCount( );
+    }
 }// end class

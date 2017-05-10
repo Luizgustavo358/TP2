@@ -174,7 +174,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 // abre a camera
                 chamaCamera( );
                 salvaBDComFoto( );
-                arg0.cancel();
+                arg0.cancel( );
             }// end onClick( )
         });
 
@@ -183,7 +183,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onClick(DialogInterface arg0, int arg1)
             {
                 salvaBDSemFoto( );
-                arg0.cancel();
+                arg0.cancel( );
             }// end onClick( )
         });
 

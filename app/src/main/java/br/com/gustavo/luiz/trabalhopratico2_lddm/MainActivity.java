@@ -19,6 +19,8 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.net.Inet4Address;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
     // definir dados
@@ -203,6 +205,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             // chama a tela de lat/long
             latLong( );
+        }else if(id == R.id.nav_db){
+            db( );
         }// end if
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -210,6 +214,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         return true;
     }// end onNavigationItemSelected( )
+
+    public void db( )
+    {
+        Intent intent = new Intent(this, BancoDeDados.class);
+
+        startActivity(intent);
+    }// end db( )
 
     public void telaMapa( )
     {

@@ -18,6 +18,11 @@
             android:title="@string/foto"/>
 
         <item
+            android:id="@+id/nav_db"
+            android:icon="@drawable/database"
+            android:title="@string/db"/>
+
+        <item
             android:id="@+id/nav_sobre"
             android:icon="@drawable/ic_help"
             android:title="@string/ajuda"/>
