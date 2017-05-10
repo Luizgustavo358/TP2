@@ -7,8 +7,9 @@
     tools:context="br.com.gustavo.luiz.trabalhopratico2_lddm.BancoDeDados">
 
     <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:id="@+id/listView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         tools:layout_editor_absoluteY="8dp"
         tools:layout_editor_absoluteX="8dp" />
 </LinearLayout>
