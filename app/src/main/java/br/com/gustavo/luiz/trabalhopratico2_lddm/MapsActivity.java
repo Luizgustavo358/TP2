@@ -27,6 +27,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.ByteArrayOutputStream;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener
 {
     // definir dados
@@ -43,7 +45,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private float acelLast; // ultimo valor da aceleracao e gravidade
     private float shake;    // valor da aceleracao diferente da gravidade
     private DbHelper bd;
-    Bitmap imageBitmap;
+    public Bitmap imageBitmap;
+    public byte imageInByte[];
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -215,7 +218,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         {
             Bundle extras = data.getExtras();
 
-            imageBitmap = (Bitmap) extras.get("data");
+            if (extras != null)
+            {
+                imageBitmap = extras.getParcelable("data");
+
+                // convert bitmap to byte
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                imageInByte = stream.toByteArray();
+
+                // Inserting Contacts
+                bd.addCoordenadas(new Coordenadas("" + lat, "" + lon, imageInByte));
+                Intent i = new Intent(MapsActivity.this, BancoDeDados.class);
+                startActivity(i);
+                finish();
+            }// end if
         }// end if
     }// end onActivityResult( )
 
@@ -225,7 +242,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         coordenadas.setLatitude("" + lat);
         coordenadas.setLongitude("" + lon);
-        //coordenadas.setFoto(imageBitmap);
+        coordenadas.setFoto(imageInByte);
 
         bd.addCoordenadas(coordenadas);
 

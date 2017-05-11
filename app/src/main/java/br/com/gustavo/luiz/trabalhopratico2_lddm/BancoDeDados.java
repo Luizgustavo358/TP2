@@ -11,7 +11,7 @@ public class BancoDeDados extends AppCompatActivity
 {
     public ArrayList<Coordenadas> imageArray = new ArrayList<>();
     public ListView dataList;
-    CoordImageAdapter imageAdapter;
+    public CoordImageAdapter imageAdapter;
     public DbHelper db;
 
     @Override

@@ -21,7 +21,14 @@ public class Coordenadas
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
-    }// end cons
+    }// end construtor
+
+    public Coordenadas(String latitude, String longitude, byte[] foto)
+    {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.foto = foto;
+    }
 
     public int getId() {
         return id;
