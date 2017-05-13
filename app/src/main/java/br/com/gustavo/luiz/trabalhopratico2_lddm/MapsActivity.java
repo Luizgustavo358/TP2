@@ -44,7 +44,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private float acelVal;  // valor atual da aceleracao e gravidade
     private float acelLast; // ultimo valor da aceleracao e gravidade
     private float shake;    // valor da aceleracao diferente da gravidade
-    private DbHelper bd;
+    private DbHelper dbHelper;
+    //private BDController bancoDeDados;
     public Bitmap imageBitmap;
     public byte imageInByte[];
 
@@ -54,7 +55,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
-        bd = new DbHelper(this);
+        dbHelper = new DbHelper(this);
+
+        // Banco de dados
+//        bancoDeDados = new BDController(this);
 
         sm = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
@@ -176,7 +180,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             {
                 // abre a camera
                 chamaCamera( );
-                salvaBDComFoto( );
+                //salvaBDComFoto( );
                 arg0.cancel( );
             }// end onClick( )
         });
@@ -228,10 +232,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 imageInByte = stream.toByteArray();
 
                 // Inserting Contacts
-                bd.addCoordenadas(new Coordenadas("" + lat, "" + lon, imageInByte));
-                Intent i = new Intent(MapsActivity.this, BancoDeDados.class);
-                startActivity(i);
-                finish();
+                //bd.addCoordenadas(new Coordenadas("" + lat, "" + lon, imageInByte));
+//                Intent i = new Intent(MapsActivity.this, BancoDeDados.class);
+//                startActivity(i);
+//                finish();
             }// end if
         }// end if
     }// end onActivityResult( )
@@ -242,21 +246,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         coordenadas.setLatitude("" + lat);
         coordenadas.setLongitude("" + lon);
-        coordenadas.setFoto(imageInByte);
 
-        bd.addCoordenadas(coordenadas);
+        dbHelper.addCoordenadas(coordenadas);
+
+        //bd.addCoordenadas(coordenadas);
+        //bancoDeDados.insereDado(lat, lon, "");
 
         Toast.makeText(getApplicationContext(), "Coordenadas e Foto inseridas com sucesso!", Toast.LENGTH_SHORT).show();
     }// end salvaBD( )
 
     public void salvaBDSemFoto( )
     {
-        Coordenadas coordenadas = new Coordenadas( );
+//        Coordenadas coordenadas = new Coordenadas( );
+//
+//        coordenadas.setLatitude("" + lat);
+//        coordenadas.setLongitude("" + lon);
 
-        coordenadas.setLatitude("" + lat);
-        coordenadas.setLongitude("" + lon);
-
-        bd.addCoordenadas(coordenadas);
+        //bd.addCoordenadas(coordenadas);
+        //bancoDeDados.insereDado(lat, lon, "");
 
         Toast.makeText(getApplicationContext(), "Coordenadas inseridas com sucesso!", Toast.LENGTH_SHORT).show();
     }// end salvaBD( )

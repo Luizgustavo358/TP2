@@ -59,11 +59,11 @@ public class CoordImageAdapter extends ArrayAdapter<Coordenadas>
 
         Coordenadas picture = data.get(position);
 
-        byte[] outImage = picture.getFoto();
+        //byte[] outImage = picture.getFoto();
 
-        ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);
-        Bitmap theImage = BitmapFactory.decodeStream(imageStream);
-        holder.imgIcon.setImageBitmap(theImage);
+        //ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);
+        //Bitmap theImage = BitmapFactory.decodeStream(imageStream);
+        //holder.imgIcon.setImageBitmap(theImage);
 
         return row;
     }
