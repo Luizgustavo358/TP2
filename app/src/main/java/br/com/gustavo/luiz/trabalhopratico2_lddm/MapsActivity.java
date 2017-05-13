@@ -180,7 +180,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             {
                 // abre a camera
                 chamaCamera( );
-                //salvaBDComFoto( );
+                salvaBDSemFoto();
                 arg0.cancel( );
             }// end onClick( )
         });
